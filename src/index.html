@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowdesk — Team work, minus the chaos</title>
+<meta name="description" content="Flowdesk is a fictional SaaS that turns scattered team tasks into one calm board. See pricing, try the calculator, and read what teams say.">
+<meta property="og:title" content="Flowdesk — Team work, minus the chaos">
+<meta property="og:description" content="One board for every task, deadline and handoff. Free 14-day trial, no card required.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="#top">⬢ Flowdesk</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Customers</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <div class="nav-actions">
+    <a class="btn ghost" href="#pricing">Sign in</a>
+    <a class="btn primary" href="#cta">Start free trial</a>
+    <button id="menuToggle" class="btn ghost menu" type="button" aria-label="Open menu">☰</button>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div>
+      <p class="pill">✦ New: automatic deadline reminders</p>
+      <h1>Team work,<br>minus the chaos.</h1>
+      <p class="lede">Flowdesk turns scattered tasks, chats and spreadsheets into one calm
+        board — so nothing slips, nobody chases, and Friday actually ends on time.</p>
+      <form class="hero-form" id="heroForm">
+        <input type="email" id="heroEmail" placeholder="Work email" aria-label="Work email" required>
+        <button class="btn primary" type="submit">Start free trial</button>
+      </form>
+      <p class="form-ok" id="heroOk" role="status" hidden>You're on the list — check your inbox for the trial link. (Demo: nothing was sent.)</p>
+      <p class="micro">Free 14-day trial · No credit card · Cancel anytime</p>
+      <div class="stats">
+        <div><strong>4,800+</strong><span>teams</span></div>
+        <div><strong>1.2M</strong><span>tasks shipped</span></div>
+        <div><strong>4.9/5</strong><span>average rating</span></div>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="board">
+        <div class="col"><b>To do</b><i>Design review</i><i>Write spec</i></div>
+        <div class="col"><b>Doing</b><i>Build board UI</i><i class="hot">Fix login bug</i></div>
+        <div class="col"><b>Done</b><i>Launch page ✓</i><i>Onboarding ✓</i></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <h2>Everything a team needs. Nothing it doesn't.</h2>
+    <div class="grid">
+      <article class="card"><h3>📋 One board</h3><p>Every task, owner and deadline in a single view. Drag, drop, done.</p></article>
+      <article class="card"><h3>⏰ Smart reminders</h3><p>Flowdesk nudges owners before deadlines slip — not after.</p></article>
+      <article class="card"><h3>🔗 Handoffs</h3><p>Hand a task to the next person with context attached. No more "who has this?"</p></article>
+      <article class="card"><h3>📊 Workload view</h3><p>See who's overloaded at a glance and rebalance before burnout.</p></article>
+      <article class="card"><h3>🔒 Private by default</h3><p>Workspaces, roles and permissions that keep client work separate.</p></article>
+      <article class="card"><h3>⚡ Fast everywhere</h3><p>Loads in under a second, works offline, syncs when you're back.</p></article>
+    </div>
+  </section>
+
+  <section id="pricing" class="section alt">
+    <h2>Simple pricing that scales with you</h2>
+    <div class="toggle-wrap">
+      <span id="lblMonthly" class="on">Monthly</span>
+      <button id="billingToggle" class="switch" type="button" role="switch" aria-checked="false" aria-label="Toggle yearly billing"><span></span></button>
+      <span id="lblYearly">Yearly <em>−20%</em></span>
+    </div>
+    <div class="grid plans">
+      <article class="card plan" data-monthly="0" data-yearly="0">
+        <h3>Starter</h3><p class="price"><span class="amount" data-price>$0</span><span class="per">/ user / mo</span></p>
+        <ul><li>Up to 5 users</li><li>3 boards</li><li>Basic reminders</li></ul>
+        <a class="btn" href="#cta">Start free</a>
+      </article>
+      <article class="card plan featured" data-monthly="12" data-yearly="9.6">
+        <p class="badge">Most popular</p>
+        <h3>Pro</h3><p class="price"><span class="amount" data-price>$12</span><span class="per">/ user / mo</span></p>
+        <ul><li>Unlimited boards</li><li>Smart reminders + workload</li><li>Priority support</li></ul>
+        <a class="btn primary" href="#cta">Start free trial</a>
+      </article>
+      <article class="card plan" data-monthly="25" data-yearly="20">
+        <h3>Business</h3><p class="price"><span class="amount" data-price>$25</span><span class="per">/ user / mo</span></p>
+        <ul><li>SSO &amp; audit log</li><li>Unlimited everything</li><li>Dedicated manager</li></ul>
+        <a class="btn" href="#cta">Talk to sales</a>
+      </article>
+    </div>
+
+    <div class="calculator">
+      <h3>🧮 Pricing calculator</h3>
+      <p>How many people are on your team? Drag the slider and see your real monthly cost.</p>
+      <label>Team size: <strong id="seatCount">10 people</strong></label>
+      <input type="range" id="seats" min="1" max="200" value="10" step="1">
+      <label>Plan:
+        <select id="calcPlan">
+          <option value="0">Starter — $0</option>
+          <option value="12" selected>Pro — $12</option>
+          <option value="25">Business — $25</option>
+        </select>
+      </label>
+      <p class="calc-result">Estimated cost: <strong id="calcTotal">$120 / month</strong>
+        <span id="calcNote">(monthly billing)</span></p>
+      <p class="micro">Yearly billing saves 20% — flip the toggle above to see it.</p>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section">
+    <h2>Teams that stopped chasing tasks</h2>
+    <div class="slider">
+      <blockquote id="quoteBox">
+        <p id="quoteText">"We replaced four tools with Flowdesk in a week. Our Monday meeting went from 60 minutes to 15."</p>
+        <footer id="quoteAuthor">— Priya S., Operations Lead, logistics startup</footer>
+      </blockquote>
+      <div class="slider-nav">
+        <button id="prevQuote" class="btn ghost" type="button" aria-label="Previous testimonial">← Prev</button>
+        <span id="quoteDots" aria-label="Testimonial position"></span>
+        <button id="nextQuote" class="btn ghost" type="button" aria-label="Next testimonial">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section alt">
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Do I need a credit card for the trial?</button>
+        <div class="faq-a" hidden><p>No. The 14-day trial is fully free; we only ask for payment if you keep going after day 14.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Can I cancel anytime?</button>
+        <div class="faq-a" hidden><p>Yes — cancel in two clicks from Settings. Your data stays exportable for 30 days after cancellation.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Does Flowdesk work offline?</button>
+        <div class="faq-a" hidden><p>Yes. Boards you opened recently keep working offline and sync automatically when you're back online.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Can I import from Trello or Asana?</button>
+        <div class="faq-a" hidden><p>Yes — one-click importers for Trello, Asana and CSV files. Most teams finish migrating in under an hour.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false">Is my data private?</button>
+        <div class="faq-a" hidden><p>Workspaces are private by default, data is encrypted in transit and at rest, and we never sell data or show ads.</p></div></div>
+    </div>
+  </section>
+
+  <section id="cta" class="section cta">
+    <h2>Ready to end the chaos?</h2>
+    <p>Join 4,800+ teams. Your first board takes two minutes to set up.</p>
+    <a class="btn primary big" href="#top">Start your free trial</a>
+  </section>
+</main>
+
+<footer><p>© 2026 Flowdesk (fictional demo product) · Privacy · Terms · Built as a portfolio project by Clamor.</p></footer>
+
+<div class="modal" id="exitModal" hidden role="dialog" aria-modal="true" aria-labelledby="exitTitle">
+  <div class="modal-box">
+    <button class="modal-close" id="exitClose" type="button" aria-label="Close">✕</button>
+    <h3 id="exitTitle">Wait — before you go 👋</h3>
+    <p>Get our free <strong>"Team Productivity Starter Kit"</strong> — a checklist + board template — in your inbox.</p>
+    <form id="exitForm">
+      <input type="email" id="exitEmail" placeholder="Work email" aria-label="Work email" required>
+      <button class="btn primary" type="submit">Send me the kit</button>
+    </form>
+    <p class="form-ok" id="exitOk" role="status" hidden>Done — check your inbox. (Demo: nothing was sent.)</p>
+    <p class="micro">No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
