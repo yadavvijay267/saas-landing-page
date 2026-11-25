@@ -38,15 +38,6 @@ python3 -m http.server --directory src 8001
 
 See [`screenshots/SCREENSHOTS.md`](screenshots/SCREENSHOTS.md).
 
-## Project structure
-
-```
-src/        index.html, styles.css, app.js
-assets/     favicon.svg
-docs/       ARCHITECTURE.md
-tests/      run_tests.py (automated sanity checks) + TESTING.md
-```
-
 ## License
 
 MIT — see [LICENSE](LICENSE).
